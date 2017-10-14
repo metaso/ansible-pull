@@ -32,6 +32,7 @@ apt-get -qq update
 apt-get -qqy install python-pip python-dev software-properties-common build-essential git bc jq nano at libffi-dev libssl-dev
 
 pip -q install awscli
+pip install cryptography==2.0.3
 pip install ansible==2.3.2
 cp -v -s /usr/local/bin/ansible* /usr/bin/
 
