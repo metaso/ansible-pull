@@ -33,7 +33,7 @@ apt-get -qqy install python-pip python-dev software-properties-common build-esse
 
 pip -q install awscli
 pip install cryptography==2.0.3
-pip install ansible==2.2.3
+pip install ansible==2.3.2
 cp -f -v -s /usr/local/bin/ansible* /usr/bin/
 
 # This should fix this error: InsecurePlatformWarning: A true SSLContext object is not available.
@@ -52,7 +52,7 @@ chmod 600 ${ANSIBLE_KEY_FILE}
 cat > ${METASO_ANSIBLE_PULL_SCRIPT} <<END
 #!/bin/bash
 export PYTHONUNBUFFERED=1
-flock -x -n ${METASO_ANSIBLE_PULL_LOCK} ${ANSIBLE_PULL} --checkout=${BRANCH} --accept-host-key --directory=${ANSIBLE_CLONE_DIR} --sleep=60 --url ${REPO} --private-key=${ANSIBLE_KEY_FILE} -t ${TAGS}
+flock -x -n ${METASO_ANSIBLE_PULL_LOCK} ${ANSIBLE_PULL} --checkout=${BRANCH} --full --accept-host-key --directory=${ANSIBLE_CLONE_DIR} --sleep=60 --url ${REPO} --private-key=${ANSIBLE_KEY_FILE} -t ${TAGS}
 END
 
 chmod 0755 ${METASO_ANSIBLE_PULL_SCRIPT}
