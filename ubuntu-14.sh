@@ -31,11 +31,9 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get -qq update
 apt-get -qqy install python-pip python-dev software-properties-common build-essential git bc jq nano at
 
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
-apt-add-repository -y ppa:ansible/ansible
-apt-get -qq update
-apt-get -qqy install ansible
 pip -q install awscli
+pip install ansible==2.3.2
+cp -v -s /usr/local/bin/ansible* /usr/bin/
 
 # This should fix this error: InsecurePlatformWarning: A true SSLContext object is not available.
 # pip install --upgrade 'requests[security]'
