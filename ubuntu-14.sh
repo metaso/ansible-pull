@@ -33,7 +33,7 @@ apt-get -qqy install python-pip python-dev software-properties-common build-esse
 
 pip -q install awscli
 pip install cryptography==2.0.3
-pip install ansible==2.3.2
+pip install ansible==2.2.3
 cp -v -s /usr/local/bin/ansible* /usr/bin/
 
 # This should fix this error: InsecurePlatformWarning: A true SSLContext object is not available.
